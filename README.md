@@ -12,4 +12,4 @@ Authors
 Craig Fernandes
 
 
-![Settings Window](https://raw.github.com/craigfernandes/swiftstrap/screenshots/menu.png)
+![Settings Window](https://raw.github.com/craigfernandes/swiftstrap/screenshots/menu.PNG)
