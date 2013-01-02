@@ -10,3 +10,6 @@ A GUI builder for twitter bootstrap applications
 Authors
 =======
 Craig Fernandes
+
+
+![Settings Window](https://raw.github.com/craigfernandes/swiftstrap/screenshots/menu.png)
