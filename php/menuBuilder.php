@@ -56,7 +56,7 @@ class My_items
  *
  **/
 
-function buildNavigation($items, $parent = "0")
+function buildNavigation($items, $parent = "0", $level = 0)
 {
     $hasChildren = false;
     $outputHtml = '<ul>%s</ul>';
@@ -66,19 +66,19 @@ function buildNavigation($items, $parent = "0")
     foreach($items as $item)
     {
         if ($item->getParent() == $parent) 
-        {
+        {           
             $hasChildren = true;
             $childrenHtml .= '<li>'. $item->getName();         
-            $childrenHtml .= buildNavigation($items, $item->getChild());         
-            $childrenHtml .= '</li>';  
-                     
-        }
+            $childrenHtml .= " $level".buildNavigation($items, $item->getChild(), $level+1);                  
+            $childrenHtml .= '</li>';            
+        }        
     }
-
+ 
     // Without children, we do not need the <ul> tag.
     if (!$hasChildren) 
     {
         $outputHtml = '';
+        $level--;
     }
 
     // Returns the HTML
@@ -106,10 +106,16 @@ $object2->setName("compndsdsents");
 $object2->setParent("19");
 $object2->setChild("20");
 
+$object3 = new My_items();
+$object3->setName("compndsdsents");
+$object3->setParent("19");
+$object3->setChild("23");
+
 
 $metas[0] = $object;
 $metas[1] = $object1;
 $metas[2] = $object2;
+$metas[3] = $object3;
 
 
 print(buildNavigation($metas));
