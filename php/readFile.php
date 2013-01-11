@@ -7,6 +7,8 @@
    *
    *
    **/
+ 
+ini_set('auto_detect_line_endings', true); 
    
 class Read_file
 {
@@ -73,6 +75,9 @@ function parseFile()
      if (strlen($name) > 1)
      {
      	 $tmp = new Read_file();
+
+  		 //echo($name); 
+  		 //echo('<br>');    	 
      	 
        $pieces = explode(",", $name);
        $hold[$i] = $pieces[1];
