@@ -1,0 +1,6 @@
+545,229,1,Menu
+545,236,2,Portfolio
+545,308,3,Gallery
+575,349,4,facebook pics
+575,381,5,twitter pics
+545,411,6,contact
