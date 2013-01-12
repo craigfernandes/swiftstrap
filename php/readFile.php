@@ -17,7 +17,7 @@ class Read_file
     private $ycoord = "";
     private $id = "";
     
-    public $metas = array();
+    //public $metas = array();
    
     public function setName($fo)
     {
@@ -74,10 +74,7 @@ function parseFile()
      $name = fgets($file);
      if (strlen($name) > 1)
      {
-     	 $tmp = new Read_file();
-
-  		 //echo($name); 
-  		 //echo('<br>');    	 
+     	 $tmp = new Read_file();  	 
      	 
        $pieces = explode(",", $name);
        $hold[$i] = $pieces[1];
@@ -94,10 +91,15 @@ function parseFile()
  fclose($file); 
 	
  //walk up the menu
+   
+ $tmp_ar = array();
  for($a = $i-1; $a >= 0; $a--)
  {	
-	findParent($a,$metas);
+	$tmp_ar[$a] = findParent($a,$metas);	
  }
+ 
+ return($tmp_ar);
+ 
 }
  
  
@@ -122,18 +124,22 @@ contact 0 6
  
 function findParent($ind,$metas)
 {
+
  	if($metas[$ind]->getX() == 545)
  	{
- 	  echo($metas[$ind]->getName());
- 	  echo(' 0 ');	
- 	  echo($metas[$ind]->getId());
- 	  echo('<br>');
+ 	  $str_tmp = '';
+ 	  $str_tmp = $str_tmp .	$metas[$ind]->getName()
+ 	  				 . ',0,' . $metas[$ind]->getId();
+ 	  				 
+     return $str_tmp;
  	}
  	
  	/**Walk up the menu and find parent**/
  	else 
  	{
- 		echo($metas[$ind]->getName());
+ 		$str_tmp = '';
+ 		$str_tmp = $str_tmp .$metas[$ind]->getName()
+ 					  . (',');
  		
  		$tmp = $metas[$ind]->getX();
  		
@@ -142,21 +148,19 @@ function findParent($ind,$metas)
          if($metas[$a]->getX() < $tmp) 
          {      	     	  
       	  $tmp = $metas[$a]->getX();
-      	  echo($metas[$a]->getId());
+      	  $str_tmp = $str_tmp .$metas[$a]->getId();
       	  break;  
       	}
       }
-      echo(" ");
-      echo($metas[$ind]->getId());
-      echo('<br>');  
+      $str_tmp = $str_tmp .','
+      			  .$metas[$ind]->getId();
+      			  
+      
+      return($str_tmp);
  		
  	}	
 }
 
 
-
-
-
-parseFile();
 
 ?>

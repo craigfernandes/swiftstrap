@@ -13,6 +13,7 @@
  *   
  **/
 
+include('readFile.php');
 
 class My_items
 {
@@ -125,35 +126,32 @@ function buildNavigation($items, $parent = "0", $level = 0)
 
 
 
-//declare an array of class objects
-$metas = array();
-
-
-$object = new My_items();
-$object->setName("reloading");
-$object->setParent("0");
-$object->setChild("2");
-
-$object1 = new My_items();
-$object1->setName("sublevel");
-$object1->setParent("2");
-$object1->setChild("19");
-
-$object2 = new My_items();
-$object2->setName("sublevel");
-$object2->setParent("2");
-$object2->setChild("22");
+function getHtml()
+{
+	$metas = array();
+	$test = array();
+	$test = parsefile(); //call function from other file
 
 
 
+	for($i=0; $i<count($test); $i++) 
+	{
+		$pieces = explode(",", $test[$i]);
+	
+		
+		$object = new My_items();
+		
+		$object->setName(htmlentities($pieces[0]));
+		$object->setParent($pieces[1]);
+		$object->setChild($pieces[2]);
+		
+		$metas[$i] = $object;
+	  	
+	}
+	return buildNavigation($metas);
 
-$metas[0] = $object;
-$metas[1] = $object1;
-$metas[2] = $object2;
+}
 
-
-
-print(buildNavigation($metas));
 
 
 ?>

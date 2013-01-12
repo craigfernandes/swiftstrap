@@ -10,7 +10,7 @@
 
 	$tmp = $_POST['title'];
 	
-	$fp = fopen('dat.txt', 'w');
+	$fp = fopen('../examples/dat.txt', 'w');
 	fwrite($fp, $tmp);
 	fclose($fp);
 
