@@ -7,6 +7,12 @@ class Shortcodes extends CI_Controller {
 		
 	}
 
+	public function test_lib()
+	{
+		$this->load->library('urls_library');
+		$this->Urls_library->hello();
+	}
+
 	 /**
 	  *  @Description: testing function NOT USED!
 	  *       @Params: params

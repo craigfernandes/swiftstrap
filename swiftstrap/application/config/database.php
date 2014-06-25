@@ -51,7 +51,7 @@
 		$db['default']['hostname'] = 'localhost';
 		$db['default']['username'] = 'root';
 		$db['default']['password'] = 'root';
-		$db['default']['database'] = '';
+		$db['default']['database'] = 'builder';
 		$db['default']['dbdriver'] = 'mysql';
 		$db['default']['dbprefix'] = '';
 		$db['default']['pconnect'] = TRUE;
