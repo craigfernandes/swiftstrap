@@ -34,7 +34,7 @@ if( ! ini_get('date.timezone') )
 */
 
 
-$config['base_url']	= 'http://localhost:8888/swiftstrap/swiftstrap/';
+$config['base_url']	= 'http://localhost/swiftstrap/';
 
 
 
@@ -62,7 +62,7 @@ $config['base_url']	= 'http://localhost:8888/swiftstrap/swiftstrap/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

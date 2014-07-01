@@ -37,6 +37,96 @@ class Shortcodes extends CI_Controller {
 
 	}
 
+	 /**
+	  *  @Description: test if file uploads work
+	  *                work with ajax!
+	  *       @Params: params
+	  *
+	  *  	 @returns: returns
+	  */
+	public function ajax_test()
+	{
+		$this->load->view('header');
+		$this->load->view('body');
+		$this->load->view('builder/ajax');
+		$this->load->view('footer');
+
+	}
+
+	 /**
+	  *  @Description: test resize library working independantly
+	  *       @Params: params
+	  *
+	  *  	 @returns: returns
+	  */
+	 public function resize($name)
+	 {
+	 	$config['image_library'] = 'gd2';
+		$config['source_image']	= "./img/uploads/$name";
+		//$config['create_thumb'] = TRUE;
+		$id = random_string('alnum', 16);
+		$config['new_image'] = "./img/uploads/$id.png";
+		$config['width']	 = 500;
+		$config['height']	= 300;
+
+		
+		$this->load->library('image_lib', $config); 
+
+		$this->image_lib->resize();
+		if ( ! $this->image_lib->resize())
+		{
+		    echo $this->image_lib->display_errors();
+		}
+		else{
+			return $config['new_image'];
+		}
+
+
+	 }
+
+
+	 /**
+	  *  @Description: function to process the ajax upload
+	  *       @Params: params
+	  *
+	  *  	 @returns: returns
+	  */
+	public function upload()
+	{
+		$whitelist = array('jpg', 'jpeg', 'png', 'gif');
+		$name      = null;
+		$error     = 'No file uploaded.';
+
+		if (isset($_FILES)) {
+			if (isset($_FILES['file'])) {
+				$tmp_name = $_FILES['file']['tmp_name'];
+				$name     = basename($_FILES['file']['name']);
+				$error    = $_FILES['file']['error'];
+				
+				if ($error === UPLOAD_ERR_OK) {
+					$extension = pathinfo($name, PATHINFO_EXTENSION);
+
+					if (!in_array($extension, $whitelist)) {
+						$error = 'Invalid file type uploaded.';
+					} else {
+						move_uploaded_file($tmp_name, "./img/uploads/$name");
+					}
+				}
+			}
+		}
+
+		$path = $this->resize($name);
+
+		$file_path = base_url($path);
+
+		echo json_encode(array(
+			'name'  => $file_path,
+			'error' => $error,
+		));
+		die();
+
+	}
+
 	public function save_to_database()
 	{
 		
@@ -84,12 +174,23 @@ class Shortcodes extends CI_Controller {
 
 	}
 
+	//add text box
+
 	public function box()
 	{
 		include('./resources/shortcodes/my_codes.php');
 		echo do_shortcode('[col foo=4]Lorem ispsum[/col]');
 
 	}
+
+	//add image block
+	public function image()
+	{
+		include('./resources/shortcodes/my_codes.php');
+		echo do_shortcode('[img foo=4]Lorem ispsum[/img]');
+
+	}
+
 
 	public function load_builder_page()
 	{

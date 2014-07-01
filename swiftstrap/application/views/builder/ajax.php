@@ -1,0 +1,11 @@
+<h1>AJAX File Upload - Basic Demo</h1>
+	<p>
+		This is a demo of the plugin's default behavior.<br />
+		Choose a file below and it will be uploaded without navigating away from this page.
+	</p>
+	<form method="post" action="" enctype="multipart/form-data">
+		<label>File Input: <input type="file" name="file" id="demo1" /></label>
+		<div id="uploads">
+
+		</div>
+	</form>

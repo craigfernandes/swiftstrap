@@ -5,8 +5,10 @@
 <div class="row" >
 
     <div class="col-sm-12">
-       <div class="panel-body">
-            <button type="submit" class="btn btn-info btn-s-xs " id="add-block">Add Block</button>
+         <div class="btn-group">
+            <button type="submit" class="btn btn-white btn-s-xs " id="add-block">Add Block</button>
+       
+            <button type="submit" class="btn btn-white btn-s-xs " id="add-image">Add Image</button>
         </div>
         <div class="panel-body">
             <?php echo anchor('shortcodes/preview_page', 'Preview page'); ?>
