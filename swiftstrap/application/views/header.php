@@ -59,8 +59,8 @@
         }
         body {
             background-color: #f2f2f2;
-            font-family: 'MuseoSans-500', sans-serif;
-            font-size: 18px;
+            font-family: 'Open sans', sans-serif;
+            font-size: 14px;
             line-height: 24px;
             color: #777;
             -webkit-font-smoothing: antialiased;
@@ -103,7 +103,7 @@
             position: relative;
             background-color: #ccc;
             /* background-color: #fff;*/
-            font-size: 16px;
+            font-size: 14px;
             line-height: 24px;
         }
         .pm-header {
@@ -125,6 +125,7 @@
             position: relative;
             top: 30px;
             margin-left: 10px;
+            font-size: 18px;
             font-weight: bold;
         }
         .head-outer {
@@ -141,24 +142,24 @@
             min-width: 205px;
         }
         a {
-            color: #FF9B3F;
+            color: #FA5842;
             /*text-decoration: underline;*/
         }
         /*for the login button on menu*/
         a.stop:hover {
-            background-color: #FF9B3F;
+            background-color: #FA5842;
         }
         .purplet {
             /*color: #bc8dbe; */
-            color: #FF9B3F;
+            color: #FA5842;
         }
         .bg-purplet {
-            background-color: #FF9B3F;
+            background-color: #FA5842;
         }
         .btn-purplet {
             color: #fff !important;
-            background-color: #FF9B3F;
-            border-color: #FF9B3F;
+            background-color: #FA5842;
+            border-color: #FA5842;
         }
         /*page builder styles*/
         .handle {

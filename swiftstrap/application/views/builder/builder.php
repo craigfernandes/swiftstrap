@@ -26,7 +26,7 @@
 <div class="clearfix"></div>
 </div>
 <div class="row" style="margin-left:30px; margin-right:30px;">
- <button type="submit" class="btn btn-success btn-s-xs " id="save-db">Save to database!</button>
+ <button type="submit" class="btn btn-purplet btn-s-xs " id="save-db">Save to database!</button>
  
 </div>
 <div class="gap"></div>

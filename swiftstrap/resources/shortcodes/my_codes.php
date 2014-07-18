@@ -51,7 +51,7 @@
 		$sd = '[/col]';
 
 		$string ="<div class='col-sm-{$atts['foo']} move' id='$id' mwidth='{$atts['foo']}'> 
-			<header class='panel-heading font-bold'> 
+			<header class='panel-heading fontx-bold'> 
 				<span style='color:#fff;'>fds</span> 
 				<div class='handle fa fa-arrows'></div> 
 				<div class='shrink fa fa-minus-square'></div> 
@@ -63,7 +63,8 @@
 					<div class='form-group'> 
 						<label>Image</label>
 						<form method='post' action=' enctype='multipart/form-data'>
-							<label>File Input: <input type='file' name='file' class='demo1' id='$id' /></label>
+							<label>File Input: </label>
+							<input type='file' name='file' class='demo1' id='$id' /></label>
 							<div id='pic-$id'>
 
 							</div>

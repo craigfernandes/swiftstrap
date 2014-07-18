@@ -93,7 +93,7 @@ class Shortcodes extends CI_Controller {
 	  */
 	public function upload()
 	{
-		$whitelist = array('jpg', 'jpeg', 'png', 'gif');
+		$whitelist = array('jpg', 'jpeg', 'JPG','JPEG', 'PNG', 'png', 'gif');
 		$name      = null;
 		$error     = 'No file uploaded.';
 

@@ -18,7 +18,7 @@
                     <p class="h2">Installation</p>
                     <?php $atts = array( 'data-validate'=>'parsley'); echo form_open_multipart('installer/create_tables',$atts); ?>
                     <div class="form-group">All right sparky, now let's create the tables? You ready?</div>
-                    <button type="submit" class="btn btn-purplet btn-s-xs " id="">Save</button>
+                    <button type="submit" class="btn btn-purplet btn-s-xs " id="">I'm ready!</button>
                     <?php echo form_close(); ?>
                 </div>
             </section>
